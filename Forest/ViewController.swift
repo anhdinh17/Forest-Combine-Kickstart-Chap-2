@@ -1,24 +1,36 @@
 import UIKit
 import Combine
+import FarFarAway // We want to use the struct Model, but it's in another Module
 
 class ViewController: UIViewController {
-  @IBOutlet private weak var label: UILabel!
-  private var cancellable: AnyCancellable?
-  
-  @Published private var value = 0
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    cancellable
-      = $value
-      .dropFirst()
-      .map(\.description)
-      .sink {[weak self] string in
-        self?.label.text = string
-      }
-  }
-  
-  @IBAction private func next(_ sender: UIButton) {
-    value = Int.random(in: 1...100)
-  }
+    @IBOutlet private weak var label: UILabel!
+    /* Simple way to create AnyCancellable */
+//    private var cancellable: AnyCancellable?
+    
+    /* Other way to create AnyCancellable */
+    private var cancellables: Set<AnyCancellable> = Set()
+
+    private let model = Model()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        labelSubscription().store(in: &cancellables)
+    }
+    
+    private func labelSubscription() -> AnyCancellable {
+        model.$value
+            .dropFirst()
+            .map{ outputValue in
+                // outputValue is output of Publisher
+                return outputValue.description
+            }
+            /* .sink returns Anycancellable */
+            .sink {[weak self] string in
+                self?.label.text = string
+            }
+    }
+    
+    @IBAction private func next(_ sender: UIButton) {
+        model.next()
+    }
 }
