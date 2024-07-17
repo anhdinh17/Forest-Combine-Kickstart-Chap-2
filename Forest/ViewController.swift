@@ -10,7 +10,7 @@ class ViewController: UIViewController {
     /* Other way to create AnyCancellable */
     private var cancellables: Set<AnyCancellable> = Set()
 
-    private let model = Model()
+    private let state = State()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,11 +18,11 @@ class ViewController: UIViewController {
     }
     
     private func labelSubscription() -> AnyCancellable {
-        model.$value
+        state.$model
             .dropFirst()
             .map{ outputValue in
                 // outputValue is output of Publisher
-                return outputValue.description
+                return outputValue.value.description
             }
             /* .sink returns Anycancellable */
             .sink {[weak self] string in
@@ -31,6 +31,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction private func next(_ sender: UIButton) {
-        model.next()
+        state.next()
     }
 }
