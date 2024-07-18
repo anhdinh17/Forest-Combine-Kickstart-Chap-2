@@ -18,6 +18,7 @@
 		62A5E6952582689C00DCF42D /* FarFarAway.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62A5E68D2582689C00DCF42D /* FarFarAway.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		670121E72C48177E00F34A33 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670121E52C42724400F34A33 /* Model.swift */; };
 		670121E92C48193D00F34A33 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670121E82C48193D00F34A33 /* State.swift */; };
+		670121EB2C48B5A100F34A33 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670121EA2C48B5A100F34A33 /* Link.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		62A5E6902582689C00DCF42D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		670121E52C42724400F34A33 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		670121E82C48193D00F34A33 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		670121EA2C48B5A100F34A33 /* Link.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				6214095B257BD46B0045F0D3 /* ViewController.swift */,
 				670121E82C48193D00F34A33 /* State.swift */,
 				670121E52C42724400F34A33 /* Model.swift */,
+				670121EA2C48B5A100F34A33 /* Link.swift */,
 			);
 			path = Forest;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				6214095C257BD46B0045F0D3 /* ViewController.swift in Sources */,
 				62140958257BD46B0045F0D3 /* AppDelegate.swift in Sources */,
 				6214095A257BD46B0045F0D3 /* SceneDelegate.swift in Sources */,
+				670121EB2C48B5A100F34A33 /* Link.swift in Sources */,
 				670121E92C48193D00F34A33 /* State.swift in Sources */,
 				670121E72C48177E00F34A33 /* Model.swift in Sources */,
 			);
