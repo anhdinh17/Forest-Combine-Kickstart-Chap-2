@@ -30,7 +30,9 @@ extension Link {
   func contentsSubscription() -> AnyCancellable {
     state.$model
       .dropFirst()
-      .map(\.value.description)
+      .map(\.value)
+      // Use our custom operator to convert Output to String
+      .description()
       .sink {[weak self] string in
         self?.contents = string
       }
