@@ -20,8 +20,8 @@ class ViewController: UIViewController {
     private func labelSubscription() -> AnyCancellable {
         link.$contents
             /* .sink returns Anycancellable */
-            .sink {[weak self] string in
-                self?.label.text = string
+            .sink {[weak self] stringFromContent in
+                self?.label.text = stringFromContent
             }
     }
     
